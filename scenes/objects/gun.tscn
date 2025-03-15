@@ -1,24 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://vk6246q6apra"]
+[gd_scene load_steps=5 format=3 uid="uid://vk6246q6apra"]
 
 [ext_resource type="Script" uid="uid://ci1c3vi4vosh5" path="res://scripts/objects/base_object.gd" id="1_yd8fa"]
+[ext_resource type="PackedScene" uid="uid://cu4nhqduggrh7" path="res://models/Gun.blend" id="2_7uo6l"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sl1t8"]
-size = Vector3(0.25, 0.25, 0.25)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_16tkx"]
+points = PackedVector3Array(-0.398765, -0.179038, -0.309119, -0.398765, 0.22081, -0.309119, 1.73319, 0.22081, -0.309119, 1.93302, -0.245679, 1.22363, 1.73319, -0.245679, -0.309119, 1.00026, 0.22081, 1.22363, 1.00026, -0.245679, 1.22363, 2.06672, 0.287451, 0.823489, -0.265306, 0.154168, 0.0241069, 0.800674, 0.287451, 0.490413, 0.46763, -0.245679, 0.0241069, -0.265306, -0.179038, 0.0241069, 0.93365, 0.287451, 1.02348, 1.96452, -0.22358, 0.793126, 1.84706, 0.205173, 1.16369, 1.99963, 0.287451, 0.490413, 2.06672, 0.287451, 1.02348, 0.667456, -0.245679, -0.309119, 1.93302, 0.287451, 0.423948, -0.398765, 0.22081, -0.242354, -0.398765, -0.179038, -0.242354, 0.93365, -0.245679, 1.15671, 0.867041, 0.287451, 0.957019, 0.46763, -0.245679, 0.0908721, 0.800674, 0.287451, 0.623644, 0.93365, 0.22081, 1.15671)
 
-[sub_resource type="BoxMesh" id="BoxMesh_rdfas"]
-size = Vector3(0.25, 1.07, 0.25)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ab52w"]
+points = PackedVector3Array(0.667071, 0.287392, -0.375865, -2.19832, 0.287392, -1.37528, -2.19832, -0.312262, -0.642404, 1.80016, -0.312262, -0.442499, 1.80016, 0.287392, -1.37528, -2.19832, 0.287392, -0.642404, 1.80016, -0.312262, -1.37528, 1.80016, 0.287392, -0.375865, -2.19832, -0.312262, -1.30864, 0.667071, -0.245582, -0.30923, 1.80016, -0.245582, -1.44191, -2.19832, -0.245582, -1.37528, 1.80016, 0.220712, -1.44191, -0.365009, 0.181369, -0.404798, 1.73323, -0.245582, -0.30923, -0.365014, -0.150863, -0.404786, 0.667071, -0.312262, -0.442499, 1.58352, 0.202648, -0.353108)
 
 [node name="Gun" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.910077, 0.414439, 0, -0.414439, 0.910077, 0, -0.093169, 0)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_yd8fa")
 id = "gun"
 display_name = "Handgun"
-icon_zoom_scale = 2.0
+icon_zoom_scale = 2.5
 metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_sl1t8")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.10074, 0, 0, 0, -3.72529e-09, -0.10074, 0, 0.10074, -3.72529e-09, 0, 0.0691043, 0.0314694)
+shape = SubResource("ConvexPolygonShape3D_16tkx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_rdfas")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.10074, 0, 0, 0, -3.72529e-09, -0.10074, 0, 0.10074, -3.72529e-09, 0, 0.0691043, 0.0314694)
+shape = SubResource("ConvexPolygonShape3D_ab52w")
+
+[node name="Gun" parent="." instance=ExtResource("2_7uo6l")]
+transform = Transform3D(0.10074, 0, 0, 0, 0.10074, -3.72529e-09, 0, 3.72529e-09, 0.10074, 0, 0.0691043, 0.0314694)
+
+[editable path="Gun"]

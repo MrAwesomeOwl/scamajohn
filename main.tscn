@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cfrm7fkwks3ss"]
+[gd_scene load_steps=36 format=3 uid="uid://cfrm7fkwks3ss"]
 
 [ext_resource type="Script" uid="uid://boinlooa4ck6r" path="res://scripts/game_manager.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="1_ig7tw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://bfsutvt3lrhyx" path="res://materials/send_button.tres" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ba7u61kkxmsd0" path="res://models/sendBtn.blend" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cxm3hr8hbeg6i" path="res://scenes/button.tscn" id="6_5vw27"]
+[ext_resource type="FontFile" uid="uid://dnab4bgm1yvlt" path="res://fonts/digital-7.ttf" id="6_vivmo"]
 [ext_resource type="PackedScene" uid="uid://c1pvlpgs2mand" path="res://models/pipe.blend" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://5fhfgjwxt2sp" path="res://scripts/security_camera.gd" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://b465u37nk0kib" path="res://models/Rifle.blend" id="10_efxa6"]
@@ -84,6 +85,12 @@ size = Vector3(15.0127, 0.984741, 14.1907)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ycdy4"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w48qg"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
 size = Vector3(15.0101, 1.05029, 4.9917)
 
@@ -99,8 +106,11 @@ size = Vector3(3.49457, 1.81824, 0.320892)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
 size = Vector3(4.96631, 4.95776, 0.554199)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0xm2m"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_w48qg"]
 viewport_path = NodePath("OrderBoard/Sprite3D/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0xm2m"]
+viewport_path = NodePath("OrderBoard/Sprite3D2/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
 size = Vector3(2.43457, 0.476318, 1)
@@ -109,10 +119,11 @@ size = Vector3(2.43457, 0.476318, 1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("box")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("box", "timer_label")]
 unique_name_in_owner = true
 script = ExtResource("1_0xm2m")
 box = NodePath("../Box")
+timer_label = NodePath("../OrderBoard/Sprite3D2/SubViewport/OrderScreen/Label")
 metadata/_custom_type_script = "uid://boinlooa4ck6r"
 
 [node name="BoxAnimationPlayer" type="AnimationPlayer" parent="GameManager"]
@@ -128,6 +139,7 @@ environment = SubResource("Environment_h2yge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 0.7
 shadow_enabled = true
 
 [node name="Character" parent="." instance=ExtResource("1_ig7tw")]
@@ -144,7 +156,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339441, -0.0020752, -0.000
 shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
-transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
+transform = Transform3D(15, 0.000170378, -0.00649983, -0.0051125, 0.5, -0.00250189, 0.00649891, 8.3476e-05, 15, 0, 0, 0)
 mesh = SubResource("BoxMesh_ig7tw")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -203,6 +215,14 @@ skeleton = NodePath("../CollisionShape3D")
 [node name="DeskArea" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="DeskArea"]
+transform = Transform3D(15, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 1.21657, -5.30296)
+shape = SubResource("ConvexPolygonShape3D_ycdy4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DeskArea"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 3, 0, 1.21657, -4.22305)
+shape = SubResource("ConvexPolygonShape3D_w48qg")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeskArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010437, 0.708252, -4.36857)
 shape = SubResource("BoxShape3D_0xm2m")
@@ -247,11 +267,52 @@ shape = SubResource("BoxShape3D_h2yge")
 
 [node name="Sprite3D" type="Sprite3D" parent="OrderBoard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.401843, 0.351856)
-texture = SubResource("ViewportTexture_0xm2m")
+texture = SubResource("ViewportTexture_w48qg")
 
 [node name="SubViewport" type="SubViewport" parent="OrderBoard/Sprite3D"]
+transparent_bg = true
 
 [node name="OrderScreen" parent="OrderBoard/Sprite3D/SubViewport" instance=ExtResource("3_h2yge")]
+
+[node name="Sprite3D2" type="Sprite3D" parent="OrderBoard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.12753, 0.351856)
+texture = SubResource("ViewportTexture_0xm2m")
+
+[node name="SubViewport" type="SubViewport" parent="OrderBoard/Sprite3D2"]
+transparent_bg = true
+size = Vector2i(256, 128)
+
+[node name="OrderScreen" type="Control" parent="OrderBoard/Sprite3D2/SubViewport"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="OrderBoard/Sprite3D2/SubViewport/OrderScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="OrderBoard/Sprite3D2/SubViewport/OrderScreen"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_vivmo")
+theme_override_font_sizes/font_size = 100
+text = "0:02"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Send Button" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0360032, 0.984366, -2.23215)
@@ -360,3 +421,5 @@ transform = Transform3D(-2.49629e-08, 0, -0.571083, 0, 0.571083, 0, 0.571083, 0,
 
 [node name="Tunnel2" parent="." instance=ExtResource("13_ycdy4")]
 transform = Transform3D(-2.49629e-08, 0, 0.571083, 0, 0.571083, 0, -0.571083, 0, -2.49629e-08, -6.53363, 1.89143, -5.30491)
+
+[editable path="OrderBoard/Sprite3D/SubViewport/OrderScreen"]

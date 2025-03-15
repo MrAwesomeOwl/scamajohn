@@ -46,7 +46,7 @@ transparent_bg = true
 [node name="Node3D" type="Node3D" parent="Viewport"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Viewport/Node3D"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(0.637279, -0.667389, 0.385315, 1.47562e-08, 0.499998, 0.866027, -0.770633, -0.5519, 0.318639, 0, 0, 0)
 shadow_enabled = true
 
 [node name="CameraHolder" type="Node3D" parent="Viewport/Node3D"]

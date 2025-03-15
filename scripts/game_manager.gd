@@ -7,11 +7,24 @@ const STATE_NAMES = ["Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona
 signal on_new_order(new_order: Array[String])
 
 @export var box: Node3D
+@export var timer_label: Label
 
 var current_order: Array[String] = []
 var send_button_debounce = false
 
 var orders_remaining = 10
+var time_remaining = (60*2.5) as int
+
+func timer_countdown():
+	while time_remaining > 0:
+		time_remaining -= 1
+		var seconds = time_remaining % 60
+		var minutes = (time_remaining - seconds)/60
+		var secstr = str(seconds)
+		var minstr = "0" if minutes == 0 else str(minutes)
+		if len(secstr) == 1: secstr = "0" + secstr
+		timer_label.text = minstr + ":" + secstr
+		await Utils.wait(1)
 
 func new_order():
 	current_order = []
@@ -55,6 +68,7 @@ func try_send_order():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await Engine.get_main_loop().process_frame
+	timer_countdown()
 	new_order()
 
 
