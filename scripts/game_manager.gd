@@ -25,7 +25,9 @@ func timer_countdown():
 		if len(secstr) == 1: secstr = "0" + secstr
 		timer_label.text = minstr + ":" + secstr
 		await Utils.wait(1)
-
+	Fader.stored_text = "management disapproves of your inefficiency..."
+	get_tree().change_scene_to_file("res://scenes/CutScenes/GunEnd.tscn")
+	
 func new_order():
 	current_order = []
 	for i in range(clamp(10-orders_remaining,1,6)):
@@ -56,7 +58,8 @@ func try_send_order():
 		obj.queue_free()
 		
 	if missing_objects.size() > 0:
-		get_tree().change_scene_to_file("res://main.tscn")
+		Fader.stored_text = "you put the WRONG OBJECTS in the BOX!!!"
+		get_tree().change_scene_to_file("res://scenes/CutScenes/GunEnd.tscn")
 		
 	orders_remaining -= 1
 	

@@ -1,8 +1,38 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdm6firk08q1n"]
+[gd_scene load_steps=13 format=3 uid="uid://cdm6firk08q1n"]
 
 [ext_resource type="Script" uid="uid://5fhfgjwxt2sp" path="res://scripts/security_camera.gd" id="1_ufkw5"]
 [ext_resource type="PackedScene" uid="uid://b465u37nk0kib" path="res://models/Rifle.blend" id="2_33mm6"]
 [ext_resource type="PackedScene" uid="uid://6nq1pk8vn7c1" path="res://models/Camera.blend" id="3_fsgdo"]
+
+[sub_resource type="GDScript" id="GDScript_ufkw5"]
+resource_name = "gun_ender"
+script/source = "extends Node3D
+
+func end():
+	Fader.fade_to_black(Fader.stored_text,Color(0,0,0),Color(1,1,1))
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ufkw5"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_33mm6"]
+sky_material = SubResource("ProceduralSkyMaterial_ufkw5")
+
+[sub_resource type="Environment" id="Environment_fsgdo"]
+background_mode = 2
+sky = SubResource("Sky_33mm6")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uwrwk"]
 size = Vector3(15.0127, 0.984741, 14.1907)
@@ -62,6 +92,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5708, 0), Vector3(-0.0599863, 1.52416, -0.0746227), Vector3(0, 1.5708, 0), Vector3(-0.0760451, 1.49972, 0.106886), Vector3(-0.0359246, 1.53914, 0.0484624), Vector3(0, 1.5708, 0)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.46667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_isvnx"]
 length = 0.001
@@ -116,6 +160,10 @@ _data = {
 }
 
 [node name="Node3D" type="Node3D"]
+script = SubResource("GDScript_ufkw5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fsgdo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -126,7 +174,7 @@ transform = Transform3D(2.88202, 1.25317, -1.70343, 0, 2.8794, 2.1183, 2.11473, 
 script = ExtResource("1_ufkw5")
 
 [node name="Rifle" parent="Camera" instance=ExtResource("2_33mm6")]
-transform = Transform3D(-5.49595e-08, 0, 0.337339, 0, 0.337339, 0, -0.337339, 0, -5.49595e-08, -0.00985801, -0.226006, -0.63958)
+transform = Transform3D(-1.22116e-06, 0, 0.337339, 0, 0.337339, 0, -0.337339, 0, -1.22116e-06, -0.00985801, -0.226006, -0.63958)
 
 [node name="Camera" parent="Camera" instance=ExtResource("3_fsgdo")]
 transform = Transform3D(-0.14843, 0, -2.98023e-08, 0, 0.14843, 0, 2.98023e-08, 0, -0.14843, -0.00985801, 0, 0.0543633)
@@ -202,7 +250,7 @@ mesh = SubResource("BoxMesh_06yoe")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.622869, -0.186935, 0.759664, -0.392985, 0.914392, -0.0972087, -0.676459, -0.359085, -0.643009, 0, 1.52199, 0)
+transform = Transform3D(-0.631512, -0.162005, 0.758253, -0.369952, 0.922391, -0.111041, -0.681416, -0.350641, -0.642435, 0, 1.52199, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 libraries = {

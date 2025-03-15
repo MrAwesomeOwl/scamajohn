@@ -44,4 +44,4 @@ func _on_body_entered(body: Node) -> void:
 			queue_free()
 		elif body.id == "black_hole":
 			await body.get_absorbed(self)
-			body.queue_free()
+			get_tree().change_scene_to_file("res://scenes/CutScenes/BlackHoleAndCat.tscn")
