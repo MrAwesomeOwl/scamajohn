@@ -1,28 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://due8xmmgtdad0"]
 
 [ext_resource type="Script" uid="uid://ci1c3vi4vosh5" path="res://scripts/objects/base_object.gd" id="1_3fxnd"]
+[ext_resource type="PackedScene" uid="uid://2ddxp7syo0v0" path="res://models/JarOBees.blend" id="2_7yerc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3fxnd"]
 height = 0.5
 radius = 0.25
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7yerc"]
-top_radius = 0.25
-bottom_radius = 0.25
-height = 0.5
-radial_segments = 32
 
 [node name="CanOfBees" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_3fxnd")
 id = "can_of_bees"
-display_name = "Can o' Bees"
-icon_zoom_scale = 2.0
+display_name = "Jar o' Bees"
+icon_zoom_scale = 4.0
 metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_3fxnd")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CylinderMesh_7yerc")
+[node name="JarOBees" parent="." instance=ExtResource("2_7yerc")]
+transform = Transform3D(0.2009, 0, 0, 0, 0.2009, 0, 0, 0, 0.2009, 0, -0.261775, 0)
