@@ -1,4 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfrm7fkwks3ss"]
+[gd_scene load_steps=18 format=3 uid="uid://is6e0wfb3ohw"]
+
+[ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="1_ig7tw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(15.0127, 0.984741, 14.1907)
@@ -33,6 +48,16 @@ size = Vector3(4.96631, 4.95776, 0.554199)
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Character" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50251, 0)
 
 [node name="Room" type="Node" parent="."]
 
