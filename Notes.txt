@@ -35,8 +35,8 @@ PLAN
 Character controller- Josephine DONE
 Environment - Pritha DONE
 
-Buttons and spawning- Pritha
-Send order - Josephine \
+Buttons and spawning- Pritha DONE
+Send order - Josephine DONE
 
 Modelling scene- Pritha
 Win condition - joesephne

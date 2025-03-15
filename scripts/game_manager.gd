@@ -10,13 +10,15 @@ signal on_new_order(new_order: Array[String])
 var current_order: Array[String] = []
 var send_button_debounce = false
 
+var orders_remaining = 10
+
 func new_order():
 	current_order = []
 	for i in range(1):
 		current_order.append(OBJECT_POOL.pick_random())
 	on_new_order.emit(current_order)
 	$BoxAnimationPlayer.play("bring_box")
-	await Utils.wait(1)
+	await Utils.wait(2)
 	send_button_debounce = false
 
 func try_send_order():
@@ -35,9 +37,14 @@ func try_send_order():
 	
 	$BoxAnimationPlayer.play("send_box")
 	
-	await Utils.wait(1)
+	await Utils.wait(2)
 	for obj in boxed_objects:
 		obj.queue_free()
+		
+	if missing_objects.size() > 0:
+		get_tree().change_scene_to_file("res://main.tscn")
+		
+	orders_remaining -= 1
 		
 	new_order()
 

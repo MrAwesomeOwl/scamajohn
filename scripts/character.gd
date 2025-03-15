@@ -22,13 +22,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pick_up"):
 		if held_object:
 			held_object = null
-		elif looking_at_object is BaseObject:
-			held_object = looking_at_object
-		elif looking_at_object.has_meta("isSendButton"):
-			game_manager.try_send_order()
-			
-		elif looking_at_object.has_meta('isButton'):
-			looking_at_object.press()
+		elif looking_at_object != null:
+			if looking_at_object is BaseObject:
+				held_object = looking_at_object
+			elif looking_at_object.has_meta("isSendButton"):
+				game_manager.try_send_order()
+			elif looking_at_object.has_meta('isButton'):
+				looking_at_object.press()
 			
 	if held_object:
 		var ray_length = ($Camera.global_position - $Camera/ObjectlessLookRay.get_collision_point()).length()

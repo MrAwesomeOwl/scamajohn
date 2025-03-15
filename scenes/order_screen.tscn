@@ -6,17 +6,32 @@
 custom_minimum_size = Vector2(512, 512)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 512.0
+offset_bottom = 512.0
 script = ExtResource("1_76pwo")
 
-[node name="Label" type="Label" parent="."]
+[node name="OrdersRemaining" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Orders Left: 10"
+autowrap_mode = 2
+
+[node name="Objects" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "dingus"
+text = "dingus
+dongus
+nimbus
+rhombus
+asdf"
 autowrap_mode = 2
