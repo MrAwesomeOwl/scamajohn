@@ -1,0 +1,48 @@
+PREMISE
+Package products correctly for one day to not die
+
+INTERACTIONS
+Cat
+- black hole: universe end, end
+- Can of bees: explosion, continue
+- /// Lighter: fiyyaaa
+- Kidney
+- Gun
+black hole
+- cat
+- Other: despawn obj
+Nuke
+- lighter: explosion, end
+- Gift card: explosion, end
+Gift Card
+- nuke
+Nail jar
+- cat: flung in random direction
+Can of bees
+- cat
+T-shirt 
+- lighter: fiya 
+Lighter- always on
+- Cat
+- Nuke
+- T-shirt
+Kidney
+- Cat: cat increases size by absorbing 
+Gun
+- cat: picks up gun, end
+
+PLAN
+Character controller- Josephine
+Environment - Pritha
+
+Buttons and spawning- Pritha
+Send order - Josephine 
+
+Modelling scene- Pritha
+Win condition - joesephne
+
+Modelling objects- Pritha
+Object interaction- josephine
+
+End scene- Pritha
+Fire sound - Josephine 
