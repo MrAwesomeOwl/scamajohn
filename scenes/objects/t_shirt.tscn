@@ -1,28 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://hyialejtn866"]
+[gd_scene load_steps=4 format=3 uid="uid://hyialejtn866"]
 
 [ext_resource type="Script" uid="uid://ci1c3vi4vosh5" path="res://scripts/objects/base_object.gd" id="1_qnpxr"]
+[ext_resource type="PackedScene" uid="uid://1t71ka6eysgu" path="res://models/TShirt.blend" id="2_6mfm0"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sl1t8"]
-size = Vector3(0.5, 0.05, 0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6mfm0"]
+margin = 0.01
+points = PackedVector3Array(0.588553, -1.2022e-05, 1.02327, -0.568495, -0.0625922, -0.885798, -0.663509, -0.0625922, -0.854103, 0.599969, -0.0625922, 1.04161, 0.912859, -0.000574127, -0.60663, -0.985055, -0.000224641, -0.460647, -0.599969, -0.0625922, 1.04161, 1.0111, -0.0625922, -0.474885, -0.588553, -1.2022e-05, 1.02327, 0.54991, -0.000443732, -0.854292, -1.0111, -0.0625922, -0.411682, 0.663509, -0.0625922, -0.854103, -0.64739, -0.000178367, -0.831462, 0.985055, -0.000224641, -0.460647, -0.947756, -0.0625922, -0.632798, 1.0111, -0.0625922, -0.411682, 0.568495, -0.0625922, -0.885798, 0.947756, -0.0625922, -0.632798, 0.64739, -0.000178367, -0.831462, -0.54991, -0.000443732, -0.854292, -0.912859, -0.000574127, -0.60663, -0.726653, -0.0625922, -0.822595, 0.726653, -0.0625922, -0.822595, -1.0111, -0.0625922, -0.474885, 0.701629, -0.00049885, -0.791584, -0.701629, -0.00049885, -0.791584, -0.916283, -0.0625922, -0.664305, 0.916283, -0.0625922, -0.664305, 0.949393, -0.000379693, -0.549922, 0.979427, -0.0625922, -0.569784, -0.949393, -0.000379693, -0.549922, -0.979427, -0.0625922, -0.569784)
 
-[sub_resource type="BoxMesh" id="BoxMesh_rdfas"]
-size = Vector3(0.5, 0.05, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnpxr"]
-albedo_color = Color(0.411765, 1, 0.458824, 1)
-
-[node name="GiftCard" type="RigidBody3D"]
+[node name="TShirt" type="RigidBody3D"]
+transform = Transform3D(0.786472, 0.351779, 0.507655, 0, 0.821945, -0.569566, -0.617626, 0.447948, 0.646437, 0, 0, 0)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_qnpxr")
 id = "t_shirt"
 display_name = "T Shirt"
-icon_zoom_scale = 2.0
+icon_zoom_scale = 4.0
 metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_sl1t8")
+transform = Transform3D(0.339, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0.0102842, 0)
+shape = SubResource("ConvexPolygonShape3D_6mfm0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_rdfas")
-surface_material_override/0 = SubResource("StandardMaterial3D_qnpxr")
+[node name="TShirt" parent="." instance=ExtResource("2_6mfm0")]
+transform = Transform3D(0.339282, 0, 0, 0, 0.540462, 0, 0, 0, 0.339282, 0, 0.0102842, 0)
+
+[editable path="TShirt"]

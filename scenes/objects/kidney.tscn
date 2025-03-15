@@ -1,17 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqoxdwj0xj2o1"]
+[gd_scene load_steps=4 format=3 uid="uid://cqoxdwj0xj2o1"]
 
 [ext_resource type="Script" uid="uid://ci1c3vi4vosh5" path="res://scripts/objects/base_object.gd" id="1_1sxfl"]
+[ext_resource type="PackedScene" uid="uid://c5k2v0c1nmx5d" path="res://models/Kidney.blend" id="2_6j1ea"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sl1t8"]
-size = Vector3(0.25, 0.25, 0.25)
-
-[sub_resource type="BoxMesh" id="BoxMesh_rdfas"]
-size = Vector3(0.25, 0.25, 0.25)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sxfl"]
-albedo_color = Color(1, 0.356863, 0.427451, 1)
+size = Vector3(0.375977, 0.25, 0.59668)
 
 [node name="Kidney" type="RigidBody3D"]
+transform = Transform3D(0.960354, 0.22581, -0.163492, -0.253157, 0.951975, -0.172206, 0.116754, 0.206768, 0.971399, 0, 0, 0)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_1sxfl")
@@ -21,8 +17,8 @@ icon_zoom_scale = 2.0
 metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.520577, -6.51926e-09, -3.72529e-09, -2.79397e-09, 0.520577, 7.45058e-09, 0, 0, 0.520577, 0, 0, 0)
 shape = SubResource("BoxShape3D_sl1t8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_rdfas")
-surface_material_override/0 = SubResource("StandardMaterial3D_1sxfl")
+[node name="Kidney" parent="." instance=ExtResource("2_6j1ea")]
+transform = Transform3D(0.104428, -1.16415e-09, 9.31323e-10, 2.09548e-09, 0.104428, 1.86265e-09, 9.31323e-10, -1.86265e-09, 0.104428, 0, 0, 0)

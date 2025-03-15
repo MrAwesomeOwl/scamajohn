@@ -6,6 +6,21 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k5yyj"]
 points = PackedVector3Array(0.163197, -1.1616, -0.432588, 0.286991, 1.18477, 0.043328, 1.73992, -0.482943, -0.646413, 0.0824016, 0.0277989, -1.14131, -0.556873, 0.112986, 0.882385, -0.989753, -0.141721, -0.34846, -0.956281, 1.09582, 0.26528, 1.03162, -0.587769, 0.273943, -0.337094, -0.894521, 0.325743, 1.22058, -0.140903, -1.1069, 0.165363, -0.813403, -0.976783, 1.13983, -1.07513, -0.305123, -0.206566, 0.485097, 0.821037, 1.56539, -0.0140737, -0.300117, -0.900946, -0.609742, -0.00764092, 1.20031, 0.274469, -0.878003, -0.0382996, 0.399788, -0.922382, 1.04994, -0.688198, -1.06216, -0.628617, -0.599893, -0.721269, 0.417362, -0.933284, 0.365682, -0.627504, 0.0276925, -0.804477, 1.18163, -0.0543302, 0.14567, -0.946587, 0.241821, 0.504649, 0.706904, 0.358295, -1.00492, 1.58958, -0.558064, -0.177352, -0.121175, 0.0686747, 0.858366, 1.58732, 0.0691725, -0.678517, -0.426913, -0.985799, -0.388551, 0.0383154, -0.351344, -1.14739, 1.09335, -0.984649, -0.726166, 0.163545, -1.15972, -0.0506033, -0.851605, 1.00167, 0.457355)
 
+[sub_resource type="Animation" id="Animation_vssjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.246442, 0.246442, 0.246442)]
+}
+
 [sub_resource type="Animation" id="Animation_k5yyj"]
 resource_name = "bee_explosion"
 step = 0.1
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(4.28709, 0, 1),
 "update": 0,
 "values": [Vector3(0.246442, 0.246442, 0.246442), Vector3(0.481, 0.481, 0.481), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_vssjt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cat:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.246442, 0.246442, 0.246442)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tlckt"]

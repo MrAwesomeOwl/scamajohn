@@ -30,6 +30,7 @@ func _on_body_entered(body: Node) -> void:
 	print(body)
 	if body is BaseObject:
 		if body.id == "kidney":
+			await body.get_absorbed(self)
 			body.queue_free()
 			$CollisionShape3D.scale += Vector3(0.05,0.05,0.05)
 			$Cat.scale += Vector3(0.05,0.05,0.05)
@@ -39,5 +40,9 @@ func _on_body_entered(body: Node) -> void:
 			await Utils.wait(.5)
 			for i in range(20):
 				emit_bee()
-			#body.queue_free()
-			#queue_free()
+			body.queue_free()
+			await Utils.wait(2)
+			queue_free()
+		elif body.id == "black_hole":
+			await body.get_absorbed(self)
+			body.queue_free()
