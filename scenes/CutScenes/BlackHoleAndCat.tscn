@@ -170,7 +170,7 @@ _data = {
 &"RESET": SubResource("Animation_t5sth")
 }
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 script = SubResource("GDScript_vrkqa")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

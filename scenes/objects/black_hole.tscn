@@ -12,17 +12,18 @@ collision_mask = 3
 script = ExtResource("1_r0n3k")
 id = "black_hole"
 display_name = "Black Hole"
-icon_zoom_scale = 6.0
+icon_zoom_scale = 4.0
 metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.09467, 0, 0, 0, 1.09467, 0, 0, 0, 1.09467, 0, 0, 0)
+transform = Transform3D(0.54598, 0, 0, 0, 0.54598, 0, 0, 0, 0.54598, 0, 0, 0)
 shape = SubResource("SphereShape3D_5wome")
 
 [node name="BlackHole" parent="." instance=ExtResource("2_r0n3k")]
-transform = Transform3D(0.249559, 0, 0, 0, 0.249559, 0, 0, 0, 0.249559, 0, 0, 0)
+transform = Transform3D(0.124471, 0, 0, 0, 0.124471, 0, 0, 0, 0.124471, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.498762, 0, 0, 0, 0.498762, 0, 0, 0, 0.498762, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2
 

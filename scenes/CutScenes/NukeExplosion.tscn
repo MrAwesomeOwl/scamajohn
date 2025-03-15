@@ -1,6 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvgk5d3hdrqpo"]
+[gd_scene load_steps=8 format=3 uid="uid://bxg3vhunyywmi"]
 
 [ext_resource type="PackedScene" uid="uid://cg5wcv53jrcup" path="res://models/nuke.blend" id="1_t8e47"]
+
+[sub_resource type="GDScript" id="GDScript_t8e47"]
+resource_name = "nuke_end"
+script/source = "extends Node3D
+
+func end():
+	Fader.fade_to_black(\"that gift card was actually the nuclear launch codes\",Color(1,1,1),Color(0,0,0))
+	
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8e47"]
 albedo_color = Color(0, 0, 0, 1)
@@ -70,6 +88,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.417578, 0.504144, 0.731618), Vector3(0.417578, 22.344, 0.731618)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.36667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_t8e47"]
@@ -142,6 +174,7 @@ _data = {
 }
 
 [node name="Node3D" type="Node3D"]
+script = SubResource("GDScript_t8e47")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(15, 0.000170378, -0.00649983, -0.0051125, 0.5, -0.00250189, 0.00649891, 8.3476e-05, 15, 0, 0, 0)
@@ -163,3 +196,4 @@ transform = Transform3D(0.877583, -0.229849, 0.420736, 0, 0.877583, 0.479426, -0
 libraries = {
 &"": SubResource("AnimationLibrary_x1ub0")
 }
+autoplay = "NukeEnd"

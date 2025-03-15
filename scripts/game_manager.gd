@@ -12,8 +12,8 @@ signal on_new_order(new_order: Array[String])
 var current_order: Array[String] = []
 var send_button_debounce = false
 
-var orders_remaining = 10
-var time_remaining = (60*2.5) as int
+var orders_remaining = 8
+var time_remaining = (60*5) as int
 
 func timer_countdown():
 	while time_remaining > 0:

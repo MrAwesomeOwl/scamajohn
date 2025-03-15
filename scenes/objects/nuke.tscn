@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cpey2c1noli4q"]
 
-[ext_resource type="Script" uid="uid://ci1c3vi4vosh5" path="res://scripts/objects/base_object.gd" id="1_8cubj"]
+[ext_resource type="Script" uid="uid://bw0qj77iw53im" path="res://scripts/objects/nuke.gd" id="1_q8xn3"]
 [ext_resource type="PackedScene" uid="uid://cg5wcv53jrcup" path="res://models/nuke.blend" id="2_q8xn3"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rfqvm"]
@@ -22,7 +22,9 @@ points = PackedVector3Array(-0.388417, 0.493084, 0.104264, -0.363927, -0.179142,
 transform = Transform3D(0.273657, 0, -0.961827, 0, 1, 0, 0.961827, 0, 0.273657, 0, -0.356373, 0)
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_8cubj")
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_q8xn3")
 id = "nuke"
 display_name = "Nuclear Bomb"
 icon_zoom_scale = 4.0
@@ -50,5 +52,7 @@ shape = SubResource("ConvexPolygonShape3D_xlgdy")
 
 [node name="nuke" parent="." instance=ExtResource("2_q8xn3")]
 transform = Transform3D(0.551084, 0, 0, 0, 0.551084, 0, 0, 0, 0.551084, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
 [editable path="nuke"]

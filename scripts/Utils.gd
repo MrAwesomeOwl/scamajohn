@@ -6,6 +6,7 @@ func iconify_object(obj: BaseObject) -> Control:
 	var zoom = obj.icon_zoom_scale
 	var instance = template.instantiate()
 	obj.freeze = true
+	(instance.get_node("Viewport") as SubViewport).render_target_update_mode = SubViewport.UPDATE_ONCE
 	instance.get_node("Viewport/Node3D").add_child(obj)
 	instance.get_node("Viewport/Node3D/CameraHolder").scale = Vector3(zoom,zoom,zoom)
 	return instance

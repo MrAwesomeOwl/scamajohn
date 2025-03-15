@@ -124,7 +124,7 @@ size = Vector3(2.43457, 0.476318, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("box", "timer_label")]
 unique_name_in_owner = true
@@ -177,7 +177,11 @@ shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Wall1"]
 transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
-cast_shadow = 0
+mesh = SubResource("BoxMesh_ig7tw")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Room/Wall1"]
+transform = Transform3D(15, 0, 0, 0, -2.18557e-08, -15, 0, 0.5, -6.55671e-07, 0, 6.8664, -7.22531)
 mesh = SubResource("BoxMesh_ig7tw")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -190,7 +194,6 @@ shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Wall2"]
 transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ig7tw")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -203,7 +206,6 @@ shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Wall3"]
 transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ig7tw")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -216,7 +218,6 @@ shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Wall4"]
 transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ig7tw")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -429,5 +430,10 @@ transform = Transform3D(-2.49629e-08, 0, -0.571083, 0, 0.571083, 0, 0.571083, 0,
 
 [node name="Tunnel2" parent="." instance=ExtResource("13_ycdy4")]
 transform = Transform3D(-2.49629e-08, 0, 0.571083, 0, 0.571083, 0, -0.571083, 0, -2.49629e-08, -6.53363, 1.89143, -5.30491)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.532802, 0.84624, 0, -0.84624, -0.532802, 0, 14.2101, -6.43221)
+light_energy = 15.724
+spot_range = 17.917
 
 [editable path="OrderBoard/Sprite3D/SubViewport/OrderScreen"]

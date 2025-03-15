@@ -250,7 +250,7 @@ mesh = SubResource("BoxMesh_06yoe")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.631512, -0.162005, 0.758253, -0.369952, 0.922391, -0.111041, -0.681416, -0.350641, -0.642435, 0, 1.52199, 0)
+transform = Transform3D(-0.772357, -0.388373, 0.502624, 9.38773e-07, 0.791298, 0.61143, -0.635189, 0.472243, -0.611164, 0, 1.52199, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 libraries = {
