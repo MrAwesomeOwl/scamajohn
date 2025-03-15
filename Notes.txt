@@ -8,7 +8,7 @@ Cat
 - /// Lighter: fiyyaaa
 - Kidney
 - Gun
-black hole
+Black hole
 - cat
 - Other: despawn obj
 Nuke
