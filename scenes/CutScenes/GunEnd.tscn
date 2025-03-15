@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cdm6firk08q1n"]
 
-[ext_resource type="Script" path="res://scripts/security_camera.gd" id="1_ufkw5"]
+[ext_resource type="Script" uid="uid://5fhfgjwxt2sp" path="res://scripts/security_camera.gd" id="1_ufkw5"]
 [ext_resource type="PackedScene" uid="uid://b465u37nk0kib" path="res://models/Rifle.blend" id="2_33mm6"]
 [ext_resource type="PackedScene" uid="uid://6nq1pk8vn7c1" path="res://models/Camera.blend" id="3_fsgdo"]
 
@@ -250,7 +250,7 @@ mesh = SubResource("BoxMesh_06yoe")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.622869, -0.186935, 0.759664, -0.392985, 0.914392, -0.0972091, -0.676459, -0.359085, -0.643009, 0, 1.52199, 0)
+transform = Transform3D(-0.622869, -0.186935, 0.759664, -0.392985, 0.914392, -0.097209, -0.676459, -0.359085, -0.643009, 0, 1.52199, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 libraries = {

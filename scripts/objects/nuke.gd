@@ -17,3 +17,7 @@ func _on_body_entered(body: Node3D) -> void:
 			await body.get_absorbed(self)
 			Fader.stored_text = "bro that gift card had the nuclear launch codes. you just cooked the entire world"
 			get_tree().change_scene_to_file("res://scenes/CutScenes/NukeExplosion.tscn")
+		elif body.id == "lighter":
+			await body.get_absorbed(self)
+			Fader.stored_text = "cant believe you just lit a nuclear bomb on fire"
+			get_tree().change_scene_to_file("res://scenes/CutScenes/NukeExplosion.tscn")

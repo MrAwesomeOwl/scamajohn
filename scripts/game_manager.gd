@@ -12,7 +12,7 @@ signal on_new_order(new_order: Array[String])
 var current_order: Array[String] = []
 var send_button_debounce = false
 
-var orders_remaining = 8
+var orders_remaining = 5
 var time_remaining = (60*5) as int
 
 func timer_countdown():
@@ -30,7 +30,7 @@ func timer_countdown():
 	
 func new_order():
 	current_order = []
-	for i in range(clamp(10-orders_remaining,1,6)):
+	for i in range(clamp(7-orders_remaining,1,6)):
 		current_order.append(OBJECT_POOL.pick_random())
 	on_new_order.emit(current_order)
 	$BoxAnimationPlayer.play("bring_box")
@@ -64,7 +64,7 @@ func try_send_order():
 	orders_remaining -= 1
 	
 	if orders_remaining <= 0:
-		get_tree().change_scene_to_file("res://win_scene.tscn")
+		get_tree().change_scene_to_file("res://scenes/victory.tscn")
 		
 	new_order()
 

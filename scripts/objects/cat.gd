@@ -45,3 +45,6 @@ func _on_body_entered(body: Node) -> void:
 		elif body.id == "black_hole":
 			await body.get_absorbed(self)
 			get_tree().change_scene_to_file("res://scenes/CutScenes/BlackHoleAndCat.tscn")
+		elif body.id == "gun":
+			await body.get_absorbed(self)
+			get_tree().change_scene_to_file("res://scenes/CutScenes/GunAndCat.tscn")
