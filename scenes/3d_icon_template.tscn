@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://boo1r8f2bihmn"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ema7t"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ema7t"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_ckcys"]
+sky_material = SubResource("ProceduralSkyMaterial_ema7t")
+
+[sub_resource type="Environment" id="Environment_hd4hh"]
+background_mode = 2
+sky = SubResource("Sky_ckcys")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="World3D" id="World3D_ema7t"]
+environment = SubResource("Environment_hd4hh")
+
+[node name="3dIconTemplate" type="Control"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_ema7t")
+expand_mode = 1
+
+[node name="Viewport" type="SubViewport" parent="."]
+own_world_3d = true
+world_3d = SubResource("World3D_ema7t")
+transparent_bg = true
+
+[node name="Node3D" type="Node3D" parent="Viewport"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Viewport/Node3D"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CameraHolder" type="Node3D" parent="Viewport/Node3D"]
+transform = Transform3D(0.906455, -0.227673, 0.355674, 2.1665e-08, 0.842227, 0.539124, -0.422302, -0.488691, 0.763441, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Viewport/Node3D/CameraHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.14994)
+fov = 10.0

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://boinlooa4ck6r" path="res://scripts/game_manager.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="1_ig7tw"]
-[ext_resource type="Script" path="res://spawnObject.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cnffw7088iy6x" path="res://scenes/objects/cube.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7o1xedo8txx0" path="res://scenes/order_screen.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c1k4ihwdn876m" path="res://scenes/box.tscn" id="4_1bvp3"]
 [ext_resource type="Material" uid="uid://bfsutvt3lrhyx" path="res://materials/send_button.tres" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cxm3hr8hbeg6i" path="res://scenes/button.tscn" id="6_5vw27"]
 
 [sub_resource type="Animation" id="Animation_lquwl"]
 length = 0.001
@@ -276,146 +276,70 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 material_override = ExtResource("5_7mycd")
 mesh = SubResource("BoxMesh_lquwl")
 
-[node name="CatButton" type="StaticBody3D" parent="."]
+[node name="LighterButton" parent="." instance=ExtResource("6_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70561, 2.23241, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
+object_scene = "res://scenes/objects/lighter.tscn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CatButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
+[node name="CatButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.406, 2.232, -2.232)
+object_scene = "res://scenes/objects/cat.tscn"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CatButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_lquwl")
+[node name="BlackHoleButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10561, 2.23241, -2.23215)
+object_scene = "res://scenes/objects/black_hole.tscn"
 
-[node name="BlackHoleButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70561, 1.43686, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
+[node name="KidneyButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.806, 2.232, -2.232)
+object_scene = "res://scenes/objects/kidney.tscn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BlackHoleButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
+[node name="CanOfBeesButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.506, 2.232, -2.232)
+object_scene = "res://scenes/objects/can_of_bees.tscn"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BlackHoleButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
+[node name="GiftCardButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70561, 1.53241, -2.23215)
+object_scene = "res://scenes/objects/gift_card.tscn"
 
-[node name="NukeButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.406, 2.23241, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
+[node name="NailJarButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.406, 1.532, -2.232)
+object_scene = "res://scenes/objects/nail_jar.tscn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NukeButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
+[node name="TShirtButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10561, 1.53241, -2.23215)
+object_scene = "res://scenes/objects/t_shirt.tscn"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NukeButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
+[node name="NukeButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.806, 1.532, -2.232)
+object_scene = "res://scenes/objects/nuke.tscn"
 
-[node name="GiftCardButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.406, 1.43686, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GiftCardButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GiftCardButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
-
-[node name="NailJarButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.106, 2.23241, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NailJarButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NailJarButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
-
-[node name="CanOfBeesButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.106, 1.43686, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CanOfBeesButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CanOfBeesButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
-
-[node name="TShirtButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.806, 2.23241, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TShirtButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TShirtButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
-
-[node name="LighterButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.806, 1.43686, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LighterButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LighterButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
-
-[node name="KidneyButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.506, 2.23241, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KidneyButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="KidneyButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
-
-[node name="GunButton" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.506, 1.43686, -2.23215)
-script = ExtResource("2_0xm2m")
-object_scene = "res://scenes/objects/cube.tscn"
-metadata/isButton = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GunButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("BoxShape3D_1bvp3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GunButton"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("BoxMesh_lquwl")
+[node name="GunButton" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.506, 1.532, -2.232)
+object_scene = "res://scenes/objects/gun.tscn"
 
 [node name="Box" parent="." instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42705, 1.35996, -5.33136)
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

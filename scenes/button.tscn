@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxm3hr8hbeg6i"]
+
+[ext_resource type="Script" uid="uid://bcogm4tt1hffe" path="res://spawnObject.gd" id="1_mi6dp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mi6dp"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="Button" type="StaticBody3D"]
+script = ExtResource("1_mi6dp")
+object_scene = "res://scenes/objects/cube.tscn"
+metadata/isButton = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_lquwl")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.0729598, 0, 0, 0, 0.0729598, 0, 0, 0, 0.0729598, -0.00146258, -0.00251651, 0.204281)
+texture = SubResource("ViewportTexture_mi6dp")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

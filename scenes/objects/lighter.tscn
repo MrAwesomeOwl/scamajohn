@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnffw7088iy6x"]
+[gd_scene load_steps=4 format=3 uid="uid://wuka3xuvl268"]
 
-[ext_resource type="Script" uid="uid://ci1c3vi4vosh5" path="res://scripts/objects/base_object.gd" id="1_sl1t8"]
+[ext_resource type="Script" uid="uid://ci1c3vi4vosh5" path="res://scripts/objects/base_object.gd" id="1_tcjcd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sl1t8"]
-size = Vector3(0.25, 0.25, 0.25)
+size = Vector3(0.3, 0.5, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rdfas"]
-size = Vector3(0.25, 0.25, 0.25)
+size = Vector3(0.3, 0.5, 0.1)
 
-[node name="Cube" type="RigidBody3D"]
+[node name="Lighter" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_sl1t8")
-id = "cube"
-display_name = "Cube"
+script = ExtResource("1_tcjcd")
+id = "lighter"
+display_name = "Lighter"
 icon_zoom_scale = 2.0
 metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
 

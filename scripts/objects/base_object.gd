@@ -2,6 +2,8 @@ extends RigidBody3D
 class_name BaseObject
 
 @export var id: String
+@export var display_name: String
+@export var icon_zoom_scale: float = 1.0
 
 func lock_to_box(box: Node3D):
 	freeze = true

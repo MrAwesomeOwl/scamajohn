@@ -3,6 +3,11 @@ extends StaticBody3D
 @export var object_scene : String
 @onready var object = load(object_scene)
 
+func _ready():
+	$Sprite3D/SubViewport/Control.add_child(
+		Utils.iconify_object(object.instantiate())
+	)
+
 func press():
 	var new_object = object.instantiate()
 	add_child(new_object)
