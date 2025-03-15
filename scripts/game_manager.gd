@@ -8,6 +8,7 @@ signal on_new_order(new_order: Array[String])
 @export var box: Node3D
 
 var current_order: Array[String] = []
+var send_button_debounce = false
 
 func new_order():
 	current_order = []
@@ -15,8 +16,12 @@ func new_order():
 		current_order.append(OBJECT_POOL.pick_random())
 	on_new_order.emit(current_order)
 	$BoxAnimationPlayer.play("bring_box")
+	await Utils.wait(1)
+	send_button_debounce = false
 
 func try_send_order():
+	if send_button_debounce == true: return
+	send_button_debounce = true
 	var missing_objects = current_order.duplicate()
 	var boxed_objects = []
 	for obj in (box.get_node("Hitbox") as Area3D).get_overlapping_bodies():
@@ -29,6 +34,12 @@ func try_send_order():
 				missing_objects.remove_at(index)
 	
 	$BoxAnimationPlayer.play("send_box")
+	
+	await Utils.wait(1)
+	for obj in boxed_objects:
+		obj.queue_free()
+		
+	new_order()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

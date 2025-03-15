@@ -2,26 +2,11 @@
 
 [ext_resource type="Script" uid="uid://boinlooa4ck6r" path="res://scripts/game_manager.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://bcogm4tt1hffe" path="res://spawnObject.gd" id="2_0xm2m"]
+[ext_resource type="Script" path="res://spawnObject.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cnffw7088iy6x" path="res://scenes/objects/cube.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7o1xedo8txx0" path="res://scenes/order_screen.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c1k4ihwdn876m" path="res://scenes/box.tscn" id="4_1bvp3"]
 [ext_resource type="Material" uid="uid://bfsutvt3lrhyx" path="res://materials/send_button.tres" id="5_7mycd"]
-
-[sub_resource type="Animation" id="Animation_1bvp3"]
-resource_name = "bring_box"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%GameManager/../Box:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9),
-"transitions": PackedFloat32Array(0.659754, -2.14355, 1),
-"update": 0,
-"values": [Vector3(8.42705, 1.35996, -5.33136), Vector3(0.00525093, 1.35996, -5.33136), Vector3(0.00525093, 1.35996, -3.20726)]
-}
 
 [sub_resource type="Animation" id="Animation_lquwl"]
 length = 0.001
@@ -36,6 +21,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(8.42705, 1.35996, -5.33136)]
+}
+
+[sub_resource type="Animation" id="Animation_1bvp3"]
+resource_name = "bring_box"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%GameManager/../Box:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9),
+"transitions": PackedFloat32Array(0.659754, -2.14355, 1),
+"update": 0,
+"values": [Vector3(8.42705, 1.35996, -5.33136), Vector3(0.00525093, 1.35996, -5.33136), Vector3(0.00525093, 1.35996, -3.20726)]
 }
 
 [sub_resource type="Animation" id="Animation_7mycd"]
