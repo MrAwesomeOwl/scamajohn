@@ -27,7 +27,6 @@ func emit_bee():
 		
 
 func _on_body_entered(body: Node) -> void:
-	print(body)
 	if body is BaseObject:
 		if body.id == "kidney":
 			await body.get_absorbed(self)

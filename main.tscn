@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://cfrm7fkwks3ss"]
+[gd_scene load_steps=39 format=3 uid="uid://cfrm7fkwks3ss"]
 
 [ext_resource type="Script" uid="uid://boinlooa4ck6r" path="res://scripts/game_manager.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cnffw7088iy6x" path="res://scenes/objects/cube.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7o1xedo8txx0" path="res://scenes/order_screen.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c1k4ihwdn876m" path="res://scenes/box.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://c7vh17e83tbr6" path="res://textures/tiles_0127_1k_nLyGZ1/tiles_0127_color_1k.jpg" id="4_vivmo"]
 [ext_resource type="Material" uid="uid://bfsutvt3lrhyx" path="res://materials/send_button.tres" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ba7u61kkxmsd0" path="res://models/sendBtn.blend" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cxm3hr8hbeg6i" path="res://scenes/button.tscn" id="6_5vw27"]
@@ -83,6 +84,12 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(15.0127, 0.984741, 14.1907)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cqfq"]
+albedo_texture = ExtResource("4_vivmo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yaehf"]
+size = Vector2(1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ycdy4"]
@@ -156,8 +163,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339441, -0.0020752, -0.000
 shape = SubResource("BoxShape3D_7dm0k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
-transform = Transform3D(15, 0.000170378, -0.00649983, -0.0051125, 0.5, -0.00250189, 0.00649891, 8.3476e-05, 15, 0, 0, 0)
-mesh = SubResource("BoxMesh_ig7tw")
+transform = Transform3D(15, 0.000170378, -0.00649983, -0.0051125, 0.5, -0.00250189, 0.00649891, 8.3476e-05, 15, 0, 0.488943, 0)
+material_override = SubResource("StandardMaterial3D_2cqfq")
+mesh = SubResource("PlaneMesh_yaehf")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="Wall1" type="StaticBody3D" parent="Room"]
