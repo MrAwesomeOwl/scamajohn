@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 		elif looking_at_object.has_meta("isSendButton"):
 			game_manager.try_send_order()
 			
+		elif looking_at_object.has_meta('isButton'):
+			looking_at_object.press()
 			
 	if held_object:
 		var ray_length = ($Camera.global_position - $Camera/ObjectlessLookRay.get_collision_point()).length()
