@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var game_manager = %GameManager as GameManager
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -23,6 +24,8 @@ func _physics_process(delta: float) -> void:
 			held_object = null
 		elif looking_at_object is BaseObject:
 			held_object = looking_at_object
+		elif looking_at_object.has_meta("isSendButton"):
+			game_manager.try_send_order()
 			
 			
 	if held_object:

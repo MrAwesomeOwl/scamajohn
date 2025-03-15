@@ -1,12 +1,5 @@
-extends RigidBody3D
-class_name BaseObject
+extends Node
 
-@export var id: String
-
-func lock_to_box(box: Node3D):
-	freeze = true
-	reparent(box,true)
-	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

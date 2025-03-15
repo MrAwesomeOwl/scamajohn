@@ -1,16 +1,14 @@
-extends RigidBody3D
-class_name BaseObject
+extends Control
 
-@export var id: String
-
-func lock_to_box(box: Node3D):
-	freeze = true
-	reparent(box,true)
-	
+@onready var game_manager = %GameManager as GameManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	print('asdf"')
+	game_manager.on_new_order.connect(func(new_order: Array[String]):
+		print("dingus :D")
+		$Label.text = str(new_order)
+	)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
