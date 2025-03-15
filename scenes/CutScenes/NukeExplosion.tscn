@@ -1,0 +1,165 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvgk5d3hdrqpo"]
+
+[ext_resource type="PackedScene" uid="uid://cg5wcv53jrcup" path="res://models/nuke.blend" id="1_t8e47"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8e47"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kd3a5"]
+material = SubResource("StandardMaterial3D_t8e47")
+
+[sub_resource type="Animation" id="Animation_68cwi"]
+resource_name = "NukeEnd"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5186, 3.36667, 3.47006, 3.54276, 3.62354, 3.6922, 3.74093, 3.81363, 3.8944, 3.96306, 4.01557, 4.08827, 4.16904, 4.2377, 4.27809, 4.35079, 4.43157, 4.50023, 4.52446, 4.59716, 4.67794, 4.7466, 4.8112, 4.8839, 4.96467, 5.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.68294, 1.9177, 3.0806), Vector3(1.85458, 1.68666, -0.823648), Vector3(1.85458, 1.68666, -0.823648), Vector3(1.79742, 1.73373, -0.892923), Vector3(1.83954, 1.73821, -0.789504), Vector3(1.74157, 1.64176, -0.789504), Vector3(1.85458, 1.68666, -0.823648), Vector3(1.79742, 1.73373, -0.892923), Vector3(1.83954, 1.73821, -0.789504), Vector3(1.74157, 1.64176, -0.789504), Vector3(1.85458, 1.68666, -0.823648), Vector3(1.79742, 1.73373, -0.892923), Vector3(1.83954, 1.73821, -0.789504), Vector3(1.74157, 1.64176, -0.789504), Vector3(1.85458, 1.68666, -0.823648), Vector3(1.79742, 1.73373, -0.892923), Vector3(1.83954, 1.73821, -0.789504), Vector3(1.74157, 1.64176, -0.789504), Vector3(1.85458, 1.68666, -0.823648), Vector3(1.79742, 1.73373, -0.892923), Vector3(1.83954, 1.73821, -0.789504), Vector3(1.74157, 1.64176, -0.789504), Vector3(1.85458, 1.68666, -0.823648), Vector3(1.79742, 1.73373, -0.892923), Vector3(1.83954, 1.73821, -0.789504), Vector3(1.74157, 1.64176, -0.789504), Vector3(1.85458, 1.68666, -0.823648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5186),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.5, 0.5, 0), Vector3(-0.360373, 2.3675, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("nuke/OmniLight3D:light_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.63573, 3.56667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.969684, 0, 0.400448, 1), Color(0.734748, 0.447725, 5.77569e-07, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nuke/OmniLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.63573, 3.56667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 16.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("nuke:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.7, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.417578, 0.504144, 0.731618), Vector3(0.417578, 22.344, 0.731618)]
+}
+
+[sub_resource type="Animation" id="Animation_t8e47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.68294, 1.9177, 3.0806)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5, 0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("nuke/OmniLight3D:light_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.969684, 0, 0.400448, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nuke/OmniLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("nuke:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.417578, 0.504144, 0.731618)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x1ub0"]
+_data = {
+&"NukeEnd": SubResource("Animation_68cwi"),
+&"RESET": SubResource("Animation_t8e47")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(15, 0.000170378, -0.00649983, -0.0051125, 0.5, -0.00250189, 0.00649891, 8.3476e-05, 15, 0, 0, 0)
+mesh = SubResource("BoxMesh_kd3a5")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="nuke" parent="." instance=ExtResource("1_t8e47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.417578, 0.504144, 0.731618)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="nuke"]
+light_color = Color(0.969684, 0, 0.400448, 1)
+light_indirect_energy = 9.808
+omni_range = 10.322
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.877583, -0.229849, 0.420736, 0, 0.877583, 0.479426, -0.479426, -0.420736, 0.770151, 1.68294, 1.9177, 3.0806)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x1ub0")
+}
