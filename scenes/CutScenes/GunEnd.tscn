@@ -117,6 +117,10 @@ _data = {
 
 [node name="Node3D" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(2.88202, 1.25317, -1.70343, 0, 2.8794, 2.1183, 2.11473, -1.70786, 2.32148, -6.70777, 8.85718, 6.74584)
 script = ExtResource("1_ufkw5")
