@@ -139,7 +139,7 @@ _data = {
 &"RESET": SubResource("Animation_t5sth")
 }
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bioa2")

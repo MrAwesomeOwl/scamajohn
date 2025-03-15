@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdm6firk08q1n"]
 
-[ext_resource type="Script" uid="uid://5fhfgjwxt2sp" path="res://scripts/security_camera.gd" id="1_ufkw5"]
+[ext_resource type="Script" path="res://scripts/security_camera.gd" id="1_ufkw5"]
 [ext_resource type="PackedScene" uid="uid://b465u37nk0kib" path="res://models/Rifle.blend" id="2_33mm6"]
 [ext_resource type="PackedScene" uid="uid://6nq1pk8vn7c1" path="res://models/Camera.blend" id="3_fsgdo"]
 
@@ -115,7 +115,7 @@ _data = {
 &"RESET": SubResource("Animation_isvnx")
 }
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -126,7 +126,7 @@ transform = Transform3D(2.88202, 1.25317, -1.70343, 0, 2.8794, 2.1183, 2.11473, 
 script = ExtResource("1_ufkw5")
 
 [node name="Rifle" parent="Camera" instance=ExtResource("2_33mm6")]
-transform = Transform3D(-5.49595e-08, 0, 0.337339, 0, 0.337339, 0, -0.337339, 0, -5.49595e-08, -0.00985801, -0.226006, -0.63958)
+transform = Transform3D(-1.22116e-06, 0, 0.337339, 0, 0.337339, 0, -0.337339, 0, -1.22116e-06, -0.00985801, -0.226006, -0.63958)
 
 [node name="Camera" parent="Camera" instance=ExtResource("3_fsgdo")]
 transform = Transform3D(-0.14843, 0, -2.98023e-08, 0, 0.14843, 0, 2.98023e-08, 0, -0.14843, -0.00985801, 0, 0.0543633)
@@ -202,7 +202,7 @@ mesh = SubResource("BoxMesh_06yoe")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.622869, -0.186935, 0.759664, -0.392985, 0.914392, -0.0972087, -0.676459, -0.359085, -0.643009, 0, 1.52199, 0)
+transform = Transform3D(-0.622869, -0.186935, 0.759664, -0.392985, 0.914392, -0.0972091, -0.676459, -0.359085, -0.643009, 0, 1.52199, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 libraries = {

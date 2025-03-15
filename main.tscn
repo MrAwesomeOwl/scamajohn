@@ -1,16 +1,16 @@
 [gd_scene load_steps=36 format=3 uid="uid://cfrm7fkwks3ss"]
 
-[ext_resource type="Script" uid="uid://boinlooa4ck6r" path="res://scripts/game_manager.gd" id="1_0xm2m"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cnffw7088iy6x" path="res://scenes/objects/cube.tscn" id="2_lquwl"]
-[ext_resource type="PackedScene" uid="uid://c7o1xedo8txx0" path="res://scenes/order_screen.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c1k4ihwdn876m" path="res://scenes/box.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" path="res://scenes/order_screen.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" path="res://scenes/box.tscn" id="4_1bvp3"]
 [ext_resource type="Material" uid="uid://bfsutvt3lrhyx" path="res://materials/send_button.tres" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ba7u61kkxmsd0" path="res://models/sendBtn.blend" id="5_kek77"]
-[ext_resource type="PackedScene" uid="uid://cxm3hr8hbeg6i" path="res://scenes/button.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" path="res://scenes/button.tscn" id="6_5vw27"]
 [ext_resource type="FontFile" uid="uid://dnab4bgm1yvlt" path="res://fonts/digital-7.ttf" id="6_vivmo"]
 [ext_resource type="PackedScene" uid="uid://c1pvlpgs2mand" path="res://models/pipe.blend" id="8_5vw27"]
-[ext_resource type="Script" uid="uid://5fhfgjwxt2sp" path="res://scripts/security_camera.gd" id="10_dg77c"]
+[ext_resource type="Script" path="res://scripts/security_camera.gd" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://b465u37nk0kib" path="res://models/Rifle.blend" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://6nq1pk8vn7c1" path="res://models/Camera.blend" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cnom8qi5dr4xn" path="res://models/Tunnel.blend" id="13_ycdy4"]
@@ -117,7 +117,7 @@ size = Vector3(2.43457, 0.476318, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("box", "timer_label")]
 unique_name_in_owner = true
