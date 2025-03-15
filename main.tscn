@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://cfrm7fkwks3ss"]
+[gd_scene load_steps=3 format=3 uid="uid://cfrm7fkwks3ss"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7dm0k"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ig7tw"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("SphereMesh_ig7tw")
+skeleton = NodePath("../CollisionShape3D")
