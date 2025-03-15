@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://is6e0wfb3ohw"]
+[gd_scene load_steps=18 format=3 uid="uid://cfrm7fkwks3ss"]
 
 [ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="1_ig7tw"]
 
@@ -190,6 +190,17 @@ mesh = SubResource("BoxMesh_7dm0k")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OrderBoard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00307631, -0.408987, 0.0876861)
 shape = SubResource("BoxShape3D_h2yge")
+
+[node name="Send Button" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0360032, 0.984366, -2.23215)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Send Button"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Send Button"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("BoxMesh_lquwl")
 
 [node name="Button1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70561, 2.23241, -2.23215)

@@ -32,8 +32,8 @@ Gun
 - cat: picks up gun, end
 
 PLAN
-Character controller- Josephine
-Environment - Pritha
+Character controller- Josephine DONE
+Environment - Pritha DONE
 
 Buttons and spawning- Pritha
 Send order - Josephine 
