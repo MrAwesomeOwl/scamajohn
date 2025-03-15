@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cfrm7fkwks3ss"]
+[gd_scene load_steps=32 format=3 uid="uid://cfrm7fkwks3ss"]
 
 [ext_resource type="Script" uid="uid://boinlooa4ck6r" path="res://scripts/game_manager.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="1_ig7tw"]
@@ -6,7 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c7o1xedo8txx0" path="res://scenes/order_screen.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c1k4ihwdn876m" path="res://scenes/box.tscn" id="4_1bvp3"]
 [ext_resource type="Material" uid="uid://bfsutvt3lrhyx" path="res://materials/send_button.tres" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://ba7u61kkxmsd0" path="res://models/sendBtn.blend" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cxm3hr8hbeg6i" path="res://scenes/button.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://c1pvlpgs2mand" path="res://models/pipe.blend" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://5fhfgjwxt2sp" path="res://scripts/security_camera.gd" id="10_dg77c"]
+[ext_resource type="PackedScene" uid="uid://b465u37nk0kib" path="res://models/Rifle.blend" id="10_efxa6"]
+[ext_resource type="PackedScene" uid="uid://6nq1pk8vn7c1" path="res://models/Camera.blend" id="11_dg77c"]
 
 [sub_resource type="Animation" id="Animation_lquwl"]
 length = 0.001
@@ -85,8 +90,6 @@ size = Vector3(15.0101, 1.05029, 4.9917)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1bvp3"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_lquwl"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
 size = Vector3(3.49457, 1.81824, 0.320892)
 
@@ -101,6 +104,7 @@ size = Vector3(4.96631, 4.95776, 0.554199)
 viewport_path = NodePath("OrderBoard/Sprite3D/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+size = Vector3(2.43457, 0.476318, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
 
@@ -128,6 +132,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Character" parent="." instance=ExtResource("1_ig7tw")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50251, 0)
 
 [node name="Room" type="Node" parent="."]
@@ -224,12 +229,6 @@ mesh = SubResource("BoxMesh_1bvp3")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.37335, 1.87602, -5.30767)
 mesh = SubResource("BoxMesh_1bvp3")
 
-[node name="Pipe" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 5, 0, 0, 0, 2, 3.18507, 8.6393, -4.30645)
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_lquwl")
-skeleton = NodePath("")
-
 [node name="ButtonBoard" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85523, 1.38894, -2.4295)
 
@@ -267,12 +266,16 @@ texture = SubResource("ViewportTexture_0xm2m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0360032, 0.984366, -2.23215)
 metadata/isSendButton = true
 
+[node name="sendBtn" parent="Send Button" instance=ExtResource("5_kek77")]
+transform = Transform3D(0.235004, 0, 0, 0, 0.235004, 0, 0, 0, 0.235004, 0, -0.127748, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Send Button"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("BoxShape3D_1bvp3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Send Button"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+visible = false
 material_override = ExtResource("5_7mycd")
 mesh = SubResource("BoxMesh_lquwl")
 
@@ -343,3 +346,20 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="pipe" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18507, 3.52123, -4.30645)
+
+[node name="Camera" type="Node3D" parent="."]
+transform = Transform3D(2.53123, 1.3938, -2.10436, -0.0614737, 3.01339, 1.92194, 2.52334, -1.32475, 2.15777, -6.70777, 8.85718, 6.74584)
+script = ExtResource("10_dg77c")
+
+[node name="Rifle" parent="Camera" instance=ExtResource("10_efxa6")]
+transform = Transform3D(-4.47035e-08, 0, 0.337339, 0, 0.337339, 0, -0.337339, 0, -4.47035e-08, -0.00985801, -0.226006, -0.63958)
+
+[node name="Camera" parent="Camera" instance=ExtResource("11_dg77c")]
+transform = Transform3D(-0.14843, 0, -2.98023e-08, 0, 0.14843, 0, 2.98023e-08, 0, -0.14843, -0.00985801, 0, 0.0543633)
+
+[node name="PosTester" type="Node3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.70777, 8.85718, 6.74584)
+top_level = true

@@ -12,3 +12,8 @@ func iconify_object(obj: BaseObject) -> Control:
 
 func wait(seconds:float):
 	await get_tree().create_timer(seconds).timeout
+
+func lerp_dt(start, goal, alpha: float, dt: float):
+	alpha = 1 - pow(alpha , (dt * 60))
+	
+	return start + (goal - start) * alpha

@@ -1,17 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c71gfvr76j46k"]
+[gd_scene load_steps=4 format=3 uid="uid://058lrnqhtpnc"]
 
 [ext_resource type="Script" uid="uid://cvbn3gnqoqfm0" path="res://scripts/objects/cat.gd" id="1_d1fni"]
+[ext_resource type="PackedScene" uid="uid://o7culf8esygl" path="res://models/Cat.blend" id="2_k5yyj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sl1t8"]
-size = Vector3(0.5, 0.25, 0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_rdfas"]
-size = Vector3(0.5, 0.25, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1fni"]
-albedo_color = Color(0.4, 0.407843, 0.4, 1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k5yyj"]
+points = PackedVector3Array(0.163197, -1.1616, -0.432588, 0.286991, 1.18477, 0.043328, 1.73992, -0.482943, -0.646413, 0.0824016, 0.0277989, -1.14131, -0.556873, 0.112986, 0.882385, -0.989753, -0.141721, -0.34846, -0.956281, 1.09582, 0.26528, 1.03162, -0.587769, 0.273943, -0.337094, -0.894521, 0.325743, 1.22058, -0.140903, -1.1069, 0.165363, -0.813403, -0.976783, 1.13983, -1.07513, -0.305123, -0.206566, 0.485097, 0.821037, 1.56539, -0.0140737, -0.300117, -0.900946, -0.609742, -0.00764092, 1.20031, 0.274469, -0.878003, -0.0382996, 0.399788, -0.922382, 1.04994, -0.688198, -1.06216, -0.628617, -0.599893, -0.721269, 0.417362, -0.933284, 0.365682, -0.627504, 0.0276925, -0.804477, 1.18163, -0.0543302, 0.14567, -0.946587, 0.241821, 0.504649, 0.706904, 0.358295, -1.00492, 1.58958, -0.558064, -0.177352, -0.121175, 0.0686747, 0.858366, 1.58732, 0.0691725, -0.678517, -0.426913, -0.985799, -0.388551, 0.0383154, -0.351344, -1.14739, 1.09335, -0.984649, -0.726166, 0.163545, -1.15972, -0.0506033, -0.851605, 1.00167, 0.457355)
 
 [node name="Cat" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198035, -0.0321094, -0.0901007)
 collision_layer = 2
 collision_mask = 3
 contact_monitor = true
@@ -23,10 +19,10 @@ icon_zoom_scale = 3.0
 metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_sl1t8")
+transform = Transform3D(0.246442, 0, 0, 0, 0.246442, 0, 0, 0, 0.246442, -0.119663, 0, 0.071108)
+shape = SubResource("ConvexPolygonShape3D_k5yyj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_rdfas")
-surface_material_override/0 = SubResource("StandardMaterial3D_d1fni")
+[node name="Cat" parent="." instance=ExtResource("2_k5yyj")]
+transform = Transform3D(0.246442, 0, 0, 0, 0.246442, 0, 0, 0, 0.246442, -0.119663, 0, 0.071108)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
