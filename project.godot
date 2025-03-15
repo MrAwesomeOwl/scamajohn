@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="scamajohn"
-run/main_scene="uid://is6e0wfb3ohw"
+run/main_scene="uid://cfrm7fkwks3ss"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
