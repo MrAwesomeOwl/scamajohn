@@ -1,0 +1,211 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdm6firk08q1n"]
+
+[ext_resource type="Script" uid="uid://5fhfgjwxt2sp" path="res://scripts/security_camera.gd" id="1_ufkw5"]
+[ext_resource type="PackedScene" uid="uid://b465u37nk0kib" path="res://models/Rifle.blend" id="2_33mm6"]
+[ext_resource type="PackedScene" uid="uid://6nq1pk8vn7c1" path="res://models/Camera.blend" id="3_fsgdo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uwrwk"]
+size = Vector3(15.0127, 0.984741, 14.1907)
+
+[sub_resource type="BoxMesh" id="BoxMesh_06yoe"]
+
+[sub_resource type="Animation" id="Animation_p4l5w"]
+resource_name = "CameraMovement"
+length = 5.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 1.52199, 0, 1.5, 1, 0, 0.944075, 0, 1.9, 1, 0, 0.944075, 0, 5, 1, -0.968314, 4.06172, 2.58902)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.108983, 0.890901, 0.304095, 0.319287, 1.46667, 1, 0.062308, 0.906238, -0.14381, 0.392643, 1.9, 1, 0.062308, 0.906238, -0.14381, 0.392643, 5, 1, -0.162595, 0.891666, -0.127933, 0.402652)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Camera:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.63169, 2.1325),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.914308, -0.784665, 0), Vector3(-0.914308, -0.784665, 0), Vector3(-0.698132, -0.785398, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Camera/Rifle:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.53333, 4.61671, 4.72172, 5.01072),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.00985801, -0.226006, -0.63958), Vector3(-0.0240561, -0.231347, -0.523934), Vector3(-0.00985801, -0.226006, -0.63958), Vector3(-0.00985801, -0.226006, -0.63958)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Camera/Rifle:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.51897, 4.61671, 4.72172, 4.82269, 4.9075, 4.99636),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(-0.0599863, 1.52416, -0.0746227), Vector3(0, 1.5708, 0), Vector3(-0.0760451, 1.49972, 0.106886), Vector3(-0.0359246, 1.53914, 0.0484624), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_isvnx"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 1.52199, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.63427, -0.633031, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Camera/Rifle:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00985801, -0.226006, -0.63958)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Camera/Rifle:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t7efi"]
+_data = {
+&"CameraMovement": SubResource("Animation_p4l5w"),
+&"RESET": SubResource("Animation_isvnx")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera" type="Node3D" parent="."]
+transform = Transform3D(2.88202, 1.25317, -1.70343, 0, 2.8794, 2.1183, 2.11473, -1.70786, 2.32148, -6.70777, 8.85718, 6.74584)
+script = ExtResource("1_ufkw5")
+
+[node name="Rifle" parent="Camera" instance=ExtResource("2_33mm6")]
+transform = Transform3D(-5.49595e-08, 0, 0.337339, 0, 0.337339, 0, -0.337339, 0, -5.49595e-08, -0.00985801, -0.226006, -0.63958)
+
+[node name="Camera" parent="Camera" instance=ExtResource("3_fsgdo")]
+transform = Transform3D(-0.14843, 0, -2.98023e-08, 0, 0.14843, 0, 2.98023e-08, 0, -0.14843, -0.00985801, 0, 0.0543633)
+
+[node name="PosTester" type="Node3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.70777, 8.85718, 6.74584)
+top_level = true
+
+[node name="Room" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339441, -0.0020752, -0.00019455)
+shape = SubResource("BoxShape3D_uwrwk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
+transform = Transform3D(15, 0.000170378, -0.00649983, -0.0051125, 0.5, -0.00250189, 0.00649891, 8.3476e-05, 15, 0, 0, 0)
+mesh = SubResource("BoxMesh_06yoe")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Wall1" type="StaticBody3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00230408, 6.73426, -6.9938)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339441, -0.0020752, -0.449759)
+shape = SubResource("BoxShape3D_uwrwk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Wall1"]
+transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_06yoe")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Wall2" type="StaticBody3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00179482, 6.73404, 6.97883)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339441, -0.0020752, -0.00019455)
+shape = SubResource("BoxShape3D_uwrwk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Wall2"]
+transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_06yoe")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Wall3" type="StaticBody3D" parent="Room"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 6.99821, 6.73404, -0.0211668)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339441, -0.0020752, -0.00019455)
+shape = SubResource("BoxShape3D_uwrwk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Wall3"]
+transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_06yoe")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Wall4" type="StaticBody3D" parent="Room"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -7.02172, 6.73866, -0.0486197)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35187e-23, 0, -8.35187e-23, 1, 0.0339441, -0.0020752, -0.00019455)
+shape = SubResource("BoxShape3D_uwrwk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Wall4"]
+transform = Transform3D(15, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_06yoe")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.622869, -0.186935, 0.759664, -0.392985, 0.914392, -0.0972087, -0.676459, -0.359085, -0.643009, 0, 1.52199, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_t7efi")
+}
+autoplay = "CameraMovement"
