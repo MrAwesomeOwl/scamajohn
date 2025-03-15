@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://73gpgt05c2lw"]
+
+[ext_resource type="Texture2D" uid="uid://io30ewayu5ga" path="res://icon.svg" id="1_72jho"]
+[ext_resource type="PackedScene" uid="uid://did4yjlfq5bun" path="res://scenes/character.tscn" id="2_pmmxu"]
+[ext_resource type="PackedScene" uid="uid://cnffw7088iy6x" path="res://scenes/objects/cube.tscn" id="3_aygvr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pmmxu"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_aygvr"]
+sky_material = SubResource("ProceduralSkyMaterial_pmmxu")
+
+[sub_resource type="Environment" id="Environment_8wy62"]
+background_mode = 2
+sky = SubResource("Sky_aygvr")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmmxu"]
+albedo_texture = ExtResource("1_72jho")
+
+[sub_resource type="BoxMesh" id="BoxMesh_aygvr"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8wy62"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8wy62"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aygvr"]
+
+[node name="CharacterTestLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8wy62")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_pmmxu")
+mesh = SubResource("BoxMesh_aygvr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_8wy62")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.832014, 1.37528)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+material_override = SubResource("StandardMaterial3D_pmmxu")
+mesh = SubResource("BoxMesh_8wy62")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_aygvr")
+
+[node name="Character" parent="." instance=ExtResource("2_pmmxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5115, 0)
+
+[node name="Cube" parent="." instance=ExtResource("3_aygvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74512, 1.00426, -1.67043)

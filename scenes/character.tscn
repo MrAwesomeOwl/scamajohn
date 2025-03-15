@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://did4yjlfq5bun"]
+
+[ext_resource type="Script" uid="uid://dobumcvqd8c4l" path="res://scripts/character.gd" id="1_agfs1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dkjbp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_agfs1"]
+
+[node name="Character" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_agfs1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_dkjbp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_agfs1")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018333, 0.545859, 0.0187896)
+top_level = true
+
+[node name="LookRay" type="RayCast3D" parent="Camera"]
+target_position = Vector3(0, 0, -3)
+collision_mask = 3
+
+[node name="ObjectlessLookRay" type="RayCast3D" parent="Camera"]
+target_position = Vector3(0, 0, -3)
+
+[node name="FlatDir" type="Node3D" parent="."]
+top_level = true
