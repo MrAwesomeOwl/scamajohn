@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7wpao5305iwd"]
+
+[ext_resource type="Script" uid="uid://ci1c3vi4vosh5" path="res://scripts/objects/base_object.gd" id="1_8cubj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5wome"]
+radius = 0.25
+
+[sub_resource type="SphereMesh" id="SphereMesh_r0n3k"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oc3nw"]
+albedo_color = Color(0.960784, 1, 0, 1)
+
+[node name="Nuke" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_8cubj")
+id = "nuke"
+display_name = "Nuclear Bomb"
+icon_zoom_scale = 2.0
+metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5wome")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_r0n3k")
+surface_material_override/0 = SubResource("StandardMaterial3D_oc3nw")

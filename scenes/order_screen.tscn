@@ -10,6 +10,38 @@ offset_right = 512.0
 offset_bottom = 512.0
 script = ExtResource("1_76pwo")
 
+[node name="ObjectTemplate" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+anchors_preset = 0
+offset_top = 72.0
+offset_right = 256.0
+offset_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ObjectTemplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Cube"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="IconContainer" type="AspectRatioContainer" parent="ObjectTemplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment_horizontal = 0
+
 [node name="OrdersRemaining" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
@@ -20,18 +52,139 @@ theme_override_font_sizes/font_size = 50
 text = "Orders Left: 10"
 autowrap_mode = 2
 
-[node name="Objects" type="Label" parent="."]
+[node name="To" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "dingus
-dongus
-nimbus
-rhombus
-asdf"
+text = "To: Somewhere
+Recipient: Greg"
+vertical_alignment = 2
 autowrap_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 0
+offset_top = 72.0
+offset_right = 40.0
+offset_bottom = 112.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="ObjectTemplate" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GridContainer/ObjectTemplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Cube"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ObjectTemplate2" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GridContainer/ObjectTemplate2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Cube"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ObjectTemplate3" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GridContainer/ObjectTemplate3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Cube"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ObjectTemplate4" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GridContainer/ObjectTemplate4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Cube"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ObjectTemplate5" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GridContainer/ObjectTemplate5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Cube"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ObjectTemplate6" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GridContainer/ObjectTemplate6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Cube"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 73.0
+offset_right = 40.0
+offset_bottom = 113.0

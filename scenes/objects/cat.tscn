@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c71gfvr76j46k"]
+
+[ext_resource type="Script" uid="uid://cvbn3gnqoqfm0" path="res://scripts/objects/cat.gd" id="1_d1fni"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sl1t8"]
+size = Vector3(0.5, 0.25, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rdfas"]
+size = Vector3(0.5, 0.25, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1fni"]
+albedo_color = Color(0.4, 0.407843, 0.4, 1)
+
+[node name="Cat" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_d1fni")
+id = "cat"
+display_name = "Cat"
+icon_zoom_scale = 3.0
+metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_sl1t8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rdfas")
+surface_material_override/0 = SubResource("StandardMaterial3D_d1fni")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

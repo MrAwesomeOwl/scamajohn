@@ -1,7 +1,8 @@
 extends Node
 class_name GameManager
 
-const OBJECT_POOL = ["cube"]
+const OBJECT_POOL = ["lighter","cat","black_hole","kidney","can_of_bees","gift_card","nail_jar","t_shirt","nuke","gun"]
+const STATE_NAMES = ["Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona", "California", "Colorado", "Connecticut", "District ", "of Columbia", "Delaware", "Florida", "Georgia", "Guam", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Virgin Islands", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"]
 
 signal on_new_order(new_order: Array[String])
 
@@ -14,7 +15,7 @@ var orders_remaining = 10
 
 func new_order():
 	current_order = []
-	for i in range(1):
+	for i in range(clamp(10-orders_remaining,1,6)):
 		current_order.append(OBJECT_POOL.pick_random())
 	on_new_order.emit(current_order)
 	$BoxAnimationPlayer.play("bring_box")
@@ -45,6 +46,9 @@ func try_send_order():
 		get_tree().change_scene_to_file("res://main.tscn")
 		
 	orders_remaining -= 1
+	
+	if orders_remaining <= 0:
+		get_tree().change_scene_to_file("res://win_scene.tscn")
 		
 	new_order()
 
