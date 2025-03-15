@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c88vk1ijqtux3" path="res://models/BlackHole.blend" id="2_r0n3k"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5wome"]
-radius = 0.25
+radius = 0.281495
 
 [node name="BlackHole" type="RigidBody3D"]
 collision_layer = 2
@@ -16,7 +16,19 @@ icon_zoom_scale = 6.0
 metadata/_custom_type_script = "uid://ci1c3vi4vosh5"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.09467, 0, 0, 0, 1.09467, 0, 0, 0, 1.09467, 0, 0, 0)
 shape = SubResource("SphereShape3D_5wome")
 
 [node name="BlackHole" parent="." instance=ExtResource("2_r0n3k")]
 transform = Transform3D(0.249559, 0, 0, 0, 0.249559, 0, 0, 0, 0.249559, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.09467, 0, 0, 0, 1.09467, 0, 0, 0, 1.09467, 0, 0, 0)
+shape = SubResource("SphereShape3D_5wome")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
