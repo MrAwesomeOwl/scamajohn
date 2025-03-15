@@ -23,7 +23,8 @@ func _physics_process(delta: float) -> void:
 			held_object = null
 		elif looking_at_object is BaseObject:
 			held_object = looking_at_object
-			
+		elif looking_at_object.has_meta('isButton'):
+			looking_at_object.press()
 			
 	if held_object:
 		var ray_length = ($Camera.global_position - $Camera/ObjectlessLookRay.get_collision_point()).length()
